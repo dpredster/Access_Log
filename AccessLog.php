@@ -1,26 +1,11 @@
 <?php
 DrawHeader( ProgramTitle() );
-if(!$_REQUEST['modfunc'])
-{
 
-    $search_start_date = date( 'Y-m' ) . '-01';
-	$search_end_date = DBDate();
-		
-    echo '<br><FORM name=log id=log action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=generate" method=POST>';
-    PopTable('header','Access Log Details');
-	echo '<div align=center style="padding-top:20px; font-size:12px;"><strong>Please Select Date Range</strong></br></div><br />
-	<TABLE border=0 width=100% align=center><tr><TD valign=middle>';
-	echo '<strong>From :</strong> </TD><TD valign=middle>';
+	// Set start date as the 1st of the month and end date as current day.
+        $search_start_date = date( 'Y-m' ) . '-01';
+		$search_end_date = DBDate();
 
-        DrawHeader(PrepareDate( $search_start_date, '_start' ));
-	echo '</TD><TD valign=middle><strong>To :</strong> </TD><TD valign=middle>';
-
-        DrawHeader(PrepareDate( $search_end_date, '_end' ));
-	echo '</TD></TR><div style=height:10px></TABLE></div>';
-	echo '<center><input type="submit" value="Generate" name="generate"></center>';
-	PopTable('footer');
-	echo '</FORM>';
-}
+	// Set start date.
 	if ( $_REQUEST['day_start']
 		&& $_REQUEST['month_start']
 		&& $_REQUEST['year_start'] )
@@ -44,7 +29,9 @@ if(!$_REQUEST['modfunc'])
 		else
 			$start_date = date( 'Y-m' ) . '-01';
 	}
-		if ( $_REQUEST['day_end']
+	
+	// Set end date.
+	if ( $_REQUEST['day_end']
 		&& $_REQUEST['month_end']
 		&& $_REQUEST['year_end'] )
 	{
@@ -54,7 +41,7 @@ if(!$_REQUEST['modfunc'])
 			$_REQUEST['day_end']
 		);
 		
-		$end_date = $inputed_end_date . ' 23:59:59'; // Add time to end date.		
+		$end_date = $inputed_end_date . ' 23:59:59';		
 	}
 	else
 	{
@@ -69,6 +56,11 @@ if(!$_REQUEST['modfunc'])
 		else
 			$end_date = DBDate();
 	}
+
+echo '<br><FORM name=log id=log action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=generate" method=POST>';
+DrawHeader(_('From ').''.PrepareDate($search_start_date,'_start').' '._('To ').' '.PrepareDate($search_end_date,'_end').' <input type="submit" class="btn btn-primary" value="'._('Go').'">');
+echo '</form>';	
+	
 if($_REQUEST['modfunc']=='generate')
 {   
 
