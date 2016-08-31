@@ -41,7 +41,7 @@ DrawHeader( ProgramTitle() );
 			$_REQUEST['day_end']
 		);
 		
-		$end_date = $inputed_end_date . ' 23:59:59';		
+		$end_date = $inputed_end_date . ' 23:59:59'; // Add time to end date		
 	}
 	else
 	{
