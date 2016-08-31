@@ -3,8 +3,9 @@ DrawHeader( ProgramTitle() );
 if(!$_REQUEST['modfunc'])
 {
 
-        $search_start_date = date( 'Y-m' ) . '-01';
-		$search_end_date = DBDate();
+    $search_start_date = date( 'Y-m' ) . '-01';
+	$search_end_date = DBDate();
+		
     echo '<br><FORM name=log id=log action="Modules.php?modname='.$_REQUEST['modname'].'&modfunc=generate" method=POST>';
     PopTable('header','Access Log Details');
 	echo '<div align=center style="padding-top:20px; font-size:12px;"><strong>Please Select Date Range</strong></br></div><br />
@@ -16,7 +17,7 @@ if(!$_REQUEST['modfunc'])
 
         DrawHeader(PrepareDate( $search_end_date, '_end' ));
 	echo '</TD></TR><div style=height:10px></TABLE></div>';
-	echo '<center><input type="submit" class="btn btn-primary" value="Generate" name="generate"></center>';
+	echo '<center><input type="submit" value="Generate" name="generate"></center>';
 	PopTable('footer');
 	echo '</FORM>';
 }
@@ -53,7 +54,7 @@ if(!$_REQUEST['modfunc'])
 			$_REQUEST['day_end']
 		);
 		
-		$end_date = $inputed_end_date . ' 23:59:59';		
+		$end_date = $inputed_end_date . ' 23:59:59'; // Add time to end date.		
 	}
 	else
 	{
@@ -106,7 +107,7 @@ if((!isset($start_date) || !isset($end_date)))
 }
 if($_REQUEST['modfunc']=='update')
 	{
-		// Prompt before deleting log
+		// Prompt before deleting log.
 		if (Prompt(_('Confirm').' '._('Access Log Deletion'),sprintf(_('Are you sure you want to delete all data stored in the Access Log?')),$table_list))
 {
 		DBQuery('DELETE FROM ACCESS_LOG WHERE LOGIN_TIME >=\''.$start_date.'\' AND LOGIN_TIME <=\''.$end_date.'\'');

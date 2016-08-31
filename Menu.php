@@ -7,7 +7,7 @@
  * @see  Menu.php in root folder
  * 
  * @package RosarioSIS
- * @subpackage modules
+ * @subpackage Access_Log modules
  */
 
 // Security programs
