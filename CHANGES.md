@@ -4,6 +4,7 @@
 Changes in 1.2
 --------------
 - Fix modname: "Access_Log/" in delete.sql
+- Only save 'Y' as status when successful login to gain space in functions.php
 
 Changes in 1.1
 ----------------
