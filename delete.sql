@@ -17,5 +17,5 @@ DROP TABLE access_log;
 -- Delete profile exceptions
 --
 
-DELETE FROM profile_exceptions WHERE modname='Security/AccessLog.php';
+DELETE FROM profile_exceptions WHERE modname='Access_Log/AccessLog.php';
 

@@ -1,6 +1,14 @@
 # CHANGES
 ## Access Log Module
 
+Changes in 1.2
+--------------
+- Fix modname: "Access_Log/" in delete.sql
+- Only save 'Y' as status when successful login to gain space in functions.php
+- Translate Profile, Status & format date in AccessLog.php
+- Rework logic to directly display logs & correctly display requested timeframe in AccessLog.php
+- Use dgettext to translate module specific strings in Menu.php & AccessLog.php
+
 Changes in 1.1
 ----------------
 - Add functions.php to use "index.php|login_check" action hooks in index.php
