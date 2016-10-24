@@ -5,6 +5,8 @@ Changes in 1.2
 --------------
 - Fix modname: "Access_Log/" in delete.sql
 - Only save 'Y' as status when successful login to gain space in functions.php
+- Translate Profile, Status & format date in AccessLog.php
+- Rework logic to directly display logs & correctly display requested timeframe in AccessLog.php
 
 Changes in 1.1
 ----------------
