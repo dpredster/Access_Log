@@ -5,7 +5,7 @@
  * @uses $menu global var
  *
  * @see  Menu.php in root folder
- * 
+ *
  * @package RosarioSIS
  * @subpackage Access_Log modules
  */
@@ -14,7 +14,7 @@
 if ( $RosarioModules['School_Setup'] )
 {
 	$menu['School_Setup']['admin'] += array(
-		2 => _( 'Security' ),
-		'Access_Log/AccessLog.php' => _( 'Access Log' )
+		2 => dgettext( 'Access_Log', 'Security' ),
+		'Access_Log/AccessLog.php' => dgettext( 'Access_Log', 'Access Log' ),
 	);
 }

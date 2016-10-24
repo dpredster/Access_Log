@@ -57,25 +57,25 @@ if ( ! $_REQUEST['modfunc'] )
 
 	echo '<form name="del" id="del" action="Modules.php?modname=' . $_REQUEST['modname'] . '&modfunc=delete" method="POST">';
 
-	DrawHeader('',SubmitButton(_('Clear Log'), 'del' ));
+	DrawHeader( '', SubmitButton( dgettext( 'Access_Log', 'Clear Log' ), 'del' ) );
 
 	ListOutput(
 		$alllogs_RET,
 		array(
-			'LOGIN_TIME' => _( 'Login Time' ),
+			'LOGIN_TIME' => dgettext( 'Access_Log', 'Login Time' ),
 			'USERNAME' => _( 'Username' ),
 			'PROFILE' => _( 'User Profile' ),
 			'STATUS' => _( 'Status' ),
-			'IP_ADDRESS' => _( 'IP Address' )
+			'IP_ADDRESS' => dgettext( 'Access_Log', 'IP Address' )
 		),
-		_( 'Login record' ),
-		_( 'Login records' ),
+		'Login record',
+		'Login records',
 		array(),
 		array(),
 		array( 'count' => true, 'save' => true )
 	);
 
-	echo '<div class="center">' . SubmitButton( _( 'Clear Log' ), 'del' ) . '</div>';
+	echo '<div class="center">' . SubmitButton( dgettext( 'Access_Log', 'Clear Log' ), 'del' ) . '</div>';
 
 	echo '</form>';
 }
@@ -84,13 +84,13 @@ if ( $_REQUEST['modfunc'] == 'delete' )
 {
 	// Prompt before deleting log.
 	if ( Prompt(
-			_( 'Access Log Deletion' ),
-			_( 'Are you sure you want to delete all data stored in the Access Log?' )
+			dgettext( 'Access_Log', 'Access Log Deletion' ),
+			dgettext( 'Access_Log', 'Are you sure you want to delete all data stored in the Access Log?' )
 		) )
 	{
 		DBQuery( 'DELETE FROM ACCESS_LOG' );
 
-		$note[] = _( 'Access Log deleted successfully' );
+		$note[] = dgettext( 'Access_Log', 'Access Log deleted successfully' );
 
 		echo ErrorMessage( $note, 'note' );
 	}
@@ -116,10 +116,10 @@ function _makeAccessLogStatus( $value, $column )
 	if ( $value
 		&& $value !== 'Failed Login' ) // Compatibility with version 1.1.
 	{
-		return _( 'Successful Login' );
+		return dgettext( 'Access_Log', 'Successful Login' );
 	}
 
-	return _( 'Failed Login' );
+	return dgettext( 'Access_Log', 'Failed Login' );
 }
 
 
