@@ -1,6 +1,10 @@
 # CHANGES
 ## Access Log Module
 
+Changes in 1.2
+--------------
+- Fix modname: "Access_Log/" in delete.sql
+
 Changes in 1.1
 ----------------
 - Add functions.php to use "index.php|login_check" action hooks in index.php
